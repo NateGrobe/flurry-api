@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAIA,wBAHI,UAMJ,CAHA,UAEI,gBACJ","file":"main.d8bcff04.chunk.css","sourcesContent":["#newCardInput {\n    width: 100%;\n}\n\n#userCard {\n    width: 100%;\n    margin-left: auto;\n}\n"]}
