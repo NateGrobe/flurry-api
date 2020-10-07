@@ -2,6 +2,7 @@ const config = require('./utils/config');
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const path = require('path');
 
 // routers
 const cardRouter = require('./routers/cardRouter');
@@ -22,13 +23,9 @@ mongoose.connect(config.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: 
     logger.error('error connecting to MongoDB:', error.message);
   });
 
-app.get('/', async (req, res) => {
-  res.json('hello there');
-});
-
 // middleware
 app.use(cors());
-app.use(express.static('../build'));
+app.use(express.static(path.join(`${__dirname}/../`, 'build')));
 app.use(express.json());
 app.use(middleware.reqLogger);
 
