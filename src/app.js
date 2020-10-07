@@ -12,7 +12,7 @@ const middleware = require('./utils/middleware');
 const mongoose = require('mongoose');
 
 // connect to mongodb
-logger.info('connecting to', config.MONGO_URI || process.env.MONGO_URI);
+logger.info('connecting to', config.MONGO_URI);
 
 mongoose.connect(config.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -28,6 +28,7 @@ app.get('/', async (req, res) => {
 
 // middleware
 app.use(cors());
+app.use(express.static('../build'));
 app.use(express.json());
 app.use(middleware.reqLogger);
 
