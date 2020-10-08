@@ -38,4 +38,17 @@ cardRouter.delete('/:id', async (req, res) => {
   res.status(204).end();
 });
 
+cardRouter.put('/:id', async (req, res) => {
+  const body = req.body;
+
+  const card = {
+    title: body.title,
+    description: body.description,
+    tasks: body.tasks,
+  };
+
+  const changedCard = await Card.findByIdAndUpdate(req.params.id, card, { new: true });
+  res.json(changedCard.toJSON());
+});
+
 module.exports = cardRouter;
